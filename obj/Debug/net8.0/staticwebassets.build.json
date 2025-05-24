@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "5Htpj0jRCkUe9O0ZJ6ujx1ZTS4BorKmUditjtUCmqT4=",
+  "Source": "FlightAlertManagment",
+  "BasePath": "_content/FlightAlertManagment",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

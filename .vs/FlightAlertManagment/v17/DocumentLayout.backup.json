@@ -1,0 +1,121 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hila_\\source\\repos\\FlightAlertManagment\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BFD9C81A-E126-4960-B067-0140E6929CF5}|..\\FlightAlertManagmentsTests\\FlightAlertManagmentsTests.csproj|c:\\users\\hila_\\source\\repos\\flightalertmanagmentstests\\alertscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26BD1B37-5F05-4DE7-BBD0-4202269E0362}|FlightAlertManagment.csproj|c:\\users\\hila_\\source\\repos\\flightalertmanagment\\controllers\\alertscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26BD1B37-5F05-4DE7-BBD0-4202269E0362}|FlightAlertManagment.csproj|solutionrelative:controllers\\alertscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26BD1B37-5F05-4DE7-BBD0-4202269E0362}|FlightAlertManagment.csproj|c:\\users\\hila_\\source\\repos\\flightalertmanagment\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26BD1B37-5F05-4DE7-BBD0-4202269E0362}|FlightAlertManagment.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26BD1B37-5F05-4DE7-BBD0-4202269E0362}|FlightAlertManagment.csproj|c:\\users\\hila_\\source\\repos\\flightalertmanagment\\model\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26BD1B37-5F05-4DE7-BBD0-4202269E0362}|FlightAlertManagment.csproj|solutionrelative:model\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26BD1B37-5F05-4DE7-BBD0-4202269E0362}|FlightAlertManagment.csproj|c:\\users\\hila_\\source\\repos\\flightalertmanagment\\model\\alert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26BD1B37-5F05-4DE7-BBD0-4202269E0362}|FlightAlertManagment.csproj|solutionrelative:model\\alert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26BD1B37-5F05-4DE7-BBD0-4202269E0362}|FlightAlertManagment.csproj|c:\\users\\hila_\\source\\repos\\flightalertmanagment\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26BD1B37-5F05-4DE7-BBD0-4202269E0362}|FlightAlertManagment.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AlertsControllerTests.cs",
+              "DocumentMoniker": "C:\\Users\\hila_\\source\\repos\\FlightAlertManagmentsTests\\AlertsControllerTests.cs",
+              "RelativeDocumentMoniker": "..\\FlightAlertManagmentsTests\\AlertsControllerTests.cs",
+              "ToolTip": "C:\\Users\\hila_\\source\\repos\\FlightAlertManagmentsTests\\AlertsControllerTests.cs",
+              "RelativeToolTip": "..\\FlightAlertManagmentsTests\\AlertsControllerTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T17:16:28.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\hila_\\source\\repos\\FlightAlertManagment\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\hila_\\source\\repos\\FlightAlertManagment\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T17:09:15.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Flight.cs",
+              "DocumentMoniker": "C:\\Users\\hila_\\source\\repos\\FlightAlertManagment\\Model\\Flight.cs",
+              "RelativeDocumentMoniker": "Model\\Flight.cs",
+              "ToolTip": "C:\\Users\\hila_\\source\\repos\\FlightAlertManagment\\Model\\Flight.cs",
+              "RelativeToolTip": "Model\\Flight.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T14:01:27.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Alert.cs",
+              "DocumentMoniker": "C:\\Users\\hila_\\source\\repos\\FlightAlertManagment\\Model\\Alert.cs",
+              "RelativeDocumentMoniker": "Model\\Alert.cs",
+              "ToolTip": "C:\\Users\\hila_\\source\\repos\\FlightAlertManagment\\Model\\Alert.cs",
+              "RelativeToolTip": "Model\\Alert.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T13:21:00.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AlertsController.cs",
+              "DocumentMoniker": "C:\\Users\\hila_\\source\\repos\\FlightAlertManagment\\Controllers\\AlertsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AlertsController.cs",
+              "ToolTip": "C:\\Users\\hila_\\source\\repos\\FlightAlertManagment\\Controllers\\AlertsController.cs",
+              "RelativeToolTip": "Controllers\\AlertsController.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAADwv0UAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T12:05:41.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hila_\\source\\repos\\FlightAlertManagment\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\hila_\\source\\repos\\FlightAlertManagment\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T10:46:30.026Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
