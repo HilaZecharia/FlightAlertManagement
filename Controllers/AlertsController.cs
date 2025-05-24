@@ -12,9 +12,11 @@ namespace FlightAlertManagment.Controllers
     public class AlertsController : ControllerBase
     {
         private readonly AppDbContext _context;
-        public AlertsController(AppDbContext context)
+        private readonly ILogger<AlertsController> _logger;
+        public AlertsController(AppDbContext context, ILogger<AlertsController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: api/alerts
@@ -28,20 +30,36 @@ namespace FlightAlertManagment.Controllers
         [HttpPost]
         public async Task<ActionResult<Alert>> CreateAlert(Alert alert)
         {
-            _context.Alerts.Add(alert);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetAlert), new { id = alert.Id }, alert);
+            try
+            {
+                _context.Alerts.Add(alert);
+                await _context.SaveChangesAsync();
+                return CreatedAtAction(nameof(GetAlert), new { id = alert.Id }, alert);
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, "Error creating alert");
+                return StatusCode(500, "An error occurred while saving the alert to the database.");
+            }
         }
 
         // GET: api/alerts/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Alert>> GetAlert(int id)
         {
-            var alert = await _context.Alerts.FindAsync(id);
-            if (alert == null)
-                return NotFound();
+            try
+            {
+                var alert = await _context.Alerts.FindAsync(id);
+                if (alert == null)
+                    return NotFound();
 
-            return alert;
+                return alert;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"An error occurred while retrieving alert with ID {id}.");
+                return StatusCode(500, "An unexpected error occurred while retrieving the alert.");
+            }
         }
 
 
@@ -49,25 +67,41 @@ namespace FlightAlertManagment.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAlert(int id, Alert alert)
         {
-            if (id != alert.Id) 
+            try { 
+            if (id != alert.Id)
                 return BadRequest();
 
             _context.Entry(alert).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return NoContent();
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, $"Error update alert id :{id}");
+                return StatusCode(500, $"An error occurred when try to update alert id {id}");
+            }
         }
 
         // DELETE: api/alerts/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAlert(int id)
         {
-            var alert = await _context.Alerts.FindAsync(id);
-            if (alert == null) 
-                return NotFound();
+            try
+            {
+                var alert = await _context.Alerts.FindAsync(id);
+                if (alert == null)
+                    return NotFound();
 
-            _context.Alerts.Remove(alert);
-            await _context.SaveChangesAsync();
-            return NoContent();
+                _context.Alerts.Remove(alert);
+                await _context.SaveChangesAsync();
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error delete alert id :{id}");
+                return StatusCode(500, $"An error occurred when try to delete alert id {id}");
+            }
+          }
         }
     }
-}
+
