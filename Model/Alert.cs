@@ -14,9 +14,7 @@ namespace FlightAlertManagment.Model
         public string DestinationAirPort { get; set; }
         public DateTime TravelDate { get; set; }
         public decimal TargetPrice { get; set; }
-
         public Currency PriceCurrency { get; set; }
-
         public int UserId { get; set; }
     }
 }
