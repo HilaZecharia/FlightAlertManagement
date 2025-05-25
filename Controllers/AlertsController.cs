@@ -1,5 +1,6 @@
 using FlightAlertManagment.Data;
 using FlightAlertManagment.Model;
+using FlightAlertManagment.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,31 +11,29 @@ namespace FlightAlertManagment.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class AlertsController : ControllerBase
-    {
-        private readonly AppDbContext _context;
+    {      
         private readonly ILogger<AlertsController> _logger;
-        public AlertsController(AppDbContext context, ILogger<AlertsController> logger)
+        private readonly AlertService _alertService;
+
+        public AlertsController(AlertService alertService, ILogger<AlertsController> logger)
         {
-            _context = context;
+            _alertService = alertService;
             _logger = logger;
         }
 
         // GET: api/alerts
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Alert>>> GetAlerts()
-        {
-            return await _context.Alerts.ToListAsync();
-        }
+        public async Task<IActionResult> GetAllAlerts() =>
+            Ok(await _alertService.GetAllAlertsAsync());
 
         // POST: api/alerts
         [HttpPost]
-        public async Task<ActionResult<Alert>> CreateAlert(Alert alert)
+        public async Task<ActionResult<Alert>> CreateAlert([FromBody] Alert alert)
         {
             try
             {
-                _context.Alerts.Add(alert);
-                await _context.SaveChangesAsync();
-                return CreatedAtAction(nameof(GetAlert), new { id = alert.Id }, alert);
+                var created = await _alertService.CreateAlertAsync(alert);
+                return CreatedAtAction(nameof(GetAlert), new { id = created.Id }, created);
             }
             catch (DbUpdateException ex)
             {
@@ -49,11 +48,9 @@ namespace FlightAlertManagment.Controllers
         {
             try
             {
-                var alert = await _context.Alerts.FindAsync(id);
-                if (alert == null)
-                    return NotFound();
-
-                return alert;
+                var alert = await _alertService.GetAlertByIdAsync(id);
+                if (alert == null) return NotFound();
+                return Ok(alert);
             }
             catch (Exception ex)
             {
@@ -67,20 +64,24 @@ namespace FlightAlertManagment.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAlert(int id, Alert alert)
         {
-            try { 
             if (id != alert.Id)
                 return BadRequest();
 
-            _context.Entry(alert).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-            return NoContent();
+            try
+            {
+                var updated = await _alertService.UpdateAlertAsync(id, alert);
+                if (!updated) 
+                    return BadRequest();
+
+                return NoContent();
             }
             catch (DbUpdateException ex)
             {
-                _logger.LogError(ex, $"Error update alert id :{id}");
-                return StatusCode(500, $"An error occurred when try to update alert id {id}");
+                _logger.LogError(ex, $"Error updating alert id: {id}");
+                return StatusCode(500, $"An error occurred while updating alert id {id}");
             }
         }
+
 
         // DELETE: api/alerts/5
         [HttpDelete("{id}")]
@@ -88,12 +89,10 @@ namespace FlightAlertManagment.Controllers
         {
             try
             {
-                var alert = await _context.Alerts.FindAsync(id);
-                if (alert == null)
+                var deleted = await _alertService.DeleteAlertAsync(id);
+                if (!deleted) 
                     return NotFound();
 
-                _context.Alerts.Remove(alert);
-                await _context.SaveChangesAsync();
                 return NoContent();
             }
             catch (Exception ex)

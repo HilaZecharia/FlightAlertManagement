@@ -1,27 +1,30 @@
 using FlightAlertManagment.Data;
+using FlightAlertManagment.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("FlightAlertDb"));
 
-// Add services to the container.
+builder.Services.AddScoped<AlertService>();
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+    });
+
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new() { Title = "FlightAlertManagment API", Version = "v1" });
+    c.UseInlineDefinitionsForEnums();
+});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.MapControllers();
 

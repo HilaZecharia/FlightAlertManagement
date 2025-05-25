@@ -52,3 +52,4 @@ C:\Users\hila_\source\repos\FlightAlertManagment\obj\Debug\net8.0\refint\FlightA
 C:\Users\hila_\source\repos\FlightAlertManagment\obj\Debug\net8.0\FlightAlertManagment.pdb
 C:\Users\hila_\source\repos\FlightAlertManagment\obj\Debug\net8.0\FlightAlertManagment.genruntimeconfig.cache
 C:\Users\hila_\source\repos\FlightAlertManagment\obj\Debug\net8.0\ref\FlightAlertManagment.dll
+C:\Users\hila_\source\repos\FlightAlertManagment\obj\Debug\net8.0\FlightAlertManagment.sourcelink.json

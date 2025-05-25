@@ -1,10 +1,22 @@
 namespace FlightAlertManagment.Model
 {
+    public enum Currency
+    {
+        USD,
+        Euro,
+        NIS
+    }
+
     public class Alert
     {
-        public int Id { get; set; }
-        public string UserId { get; set; }
-        public Flight FlightData { get; set; }
-        public DateTime CreatedAt { get; set; } 
+        public long Id { get; set; }
+        public string DepartureAirPort { get; set; }
+        public string DestinationAirPort { get; set; }
+        public DateTime TravelDate { get; set; }
+        public decimal TargetPrice { get; set; }
+
+        public Currency PriceCurrency { get; set; }
+
+        public int UserId { get; set; }
     }
 }

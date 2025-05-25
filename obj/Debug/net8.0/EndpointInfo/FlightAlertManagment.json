@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "FlightAlertManagment",
-    "version": "1.0"
+    "title": "FlightAlertManagment API",
+    "version": "v1"
   },
   "paths": {
     "/api/Alerts": {
@@ -12,33 +12,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Alert"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Alert"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Alert"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -66,8 +40,8 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Created",
             "content": {
               "text/plain": {
                 "schema": {
@@ -85,6 +59,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -198,60 +175,35 @@
         "properties": {
           "id": {
             "type": "integer",
-            "format": "int32"
-          },
-          "userId": {
-            "type": "string",
-            "nullable": true
-          },
-          "flightData": {
-            "$ref": "#/components/schemas/Flight"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Currency": {
-        "enum": [
-          0,
-          1,
-          2
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
-      "Flight": {
-        "type": "object",
-        "properties": {
-          "flightNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "departureTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "arrivalTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "price": {
-            "type": "number",
-            "format": "double"
-          },
-          "priceCurrency": {
-            "$ref": "#/components/schemas/Currency"
+            "format": "int64"
           },
           "departureAirPort": {
             "type": "string",
             "nullable": true
           },
-          "arrivalAirPort": {
+          "destinationAirPort": {
             "type": "string",
             "nullable": true
+          },
+          "travelDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "targetPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "priceCurrency": {
+            "enum": [
+              "USD",
+              "Euro",
+              "NIS"
+            ],
+            "type": "string"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
